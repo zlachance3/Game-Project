@@ -4,6 +4,10 @@ let balls = [];
 //create a variable to hold your avatar
 let me;
 
+function preload() {
+  soundFormats('mp3', 'ogg','wav');
+  mySound = loadSound('soundcode.wav');
+}
 
 function setup() {
   createCanvas(500, 400);
@@ -108,6 +112,8 @@ class Ball {
   	bounceBall(){
     		if (this.x >= me.x-100 && this.x <= me.x+100 && this.y > me.y-50 && this.y < me.y+50){
       			this.speed = -this.speed;
+            mySound.setVolume(0.1);
+            mySound.play();
     		}
   	}
 
